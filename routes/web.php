@@ -11,24 +11,16 @@ use App\Http\Controllers\TipoJornadaController;
 use App\Http\Controllers\TipoDescuentoController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
 
 
-Route::get('/probar-mail', function () {
-    Mail::raw('Esto es una prueba de correo desde Laravel 🚀', function ($message) {
-        $message->to('miiguelfabra0309@gmail.com')
-                ->subject('Correo de prueba');
-    });
 
-    return 'Correo enviado. Revisa tu inbox o Mailtrap.';
-});
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/panel', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth'])
     ->name('dashboard');
     
 Route::view('/acudientes', 'acudientes.index')->name('acudientes');

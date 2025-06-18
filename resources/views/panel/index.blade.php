@@ -132,7 +132,7 @@ return max(0, $matricula->costo_total - $totalPagado);
                     <div class="mb-3 d-flex flex-wrap gap-3">
                         <div class="bg-light rounded p-3 text-center shadow-sm flex-fill">
                             <div class="fw-bold">Total Recaudado</div>
-                            <div class="fs-5 text-success">${{ number_format($pagosPorMes->sum('monto_pagado'), 2) }}
+                            <div class="fs-5 text-success">${{ number_format($pagosPorMes->sum('monto_pagado'), 0) }}
                             </div>
                         </div>
                         <div class="bg-light rounded p-3 text-center shadow-sm flex-fill">
@@ -142,7 +142,7 @@ return max(0, $matricula->costo_total - $totalPagado);
                         <div class="bg-light rounded p-3 text-center shadow-sm flex-fill">
                             <div class="fw-bold">Promedio por Pago</div>
                             <div class="fs-5 text-warning">
-                                ${{ number_format($pagosPorMes->avg('monto_pagado'), 2) }}
+                                ${{ number_format($pagosPorMes->avg('monto_pagado'), 0) }}
                             </div>
                         </div>
                     </div>
@@ -269,9 +269,9 @@ return max(0, $matricula->costo_total - $totalPagado);
                         data: lineaTotalMensual,
                         borderColor: 'rgba(255, 99, 132, 0.8)',
                         borderDash: [10, 5],
-                        pointRadius: 0,
+                        pointRadius: 5,
                         tension: 0,
-                        fill: false
+                        fill: true
                     }
                 ]
             },
